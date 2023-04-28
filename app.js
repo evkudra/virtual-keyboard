@@ -46,9 +46,9 @@ for (let key of keyboard) {
         } else if (target.innerText === 'Backspace') {
             text = textArea.value;
             textArea.value = text.slice(0, -1);
-        } else if (target.innerText === 'Delete' || target.innerText === 'Alt' || target.innerText === 'Ctrl' || target.innerText === 'Win') {
+        } else if (target.innerText === 'Delete' || target.innerText === 'Alt' || target.innerText === 'Ctrl' || target.innerText === 'Win' || target.innerText === 'Shift') {
             return
-        } else if(target.innerText === 'CapsLock') {
+        } else if (target.innerText === 'CapsLock') {
             isShift ? isShift = false : isShift = true;
             createKeyboard (isAng, isShift);
         } else if (target.innerText === 'Enter') {
@@ -61,4 +61,23 @@ for (let key of keyboard) {
             textArea.value += target.innerText; 
         }
     })
+
+    key.addEventListener('mousedown', (event) => {
+        let target = event.target;
+        if (target.classList.contains('keyboard')) {
+            return
+        }
+        target.classList.add('key_active');
+    });
+    
+    key.addEventListener('mouseup', (event) => {
+        let target = event.target;
+        if (target.classList.contains('keyboard')) {
+            return
+        } else if (target.innerText === 'Shift') {
+            isShift ? isShift = false : isShift = true;
+            createKeyboard (isAng, isShift);
+        }
+        target.classList.remove('key_active');
+    });
 }

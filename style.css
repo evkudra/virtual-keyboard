@@ -17,6 +17,7 @@
     width: 850px;
     height: 300px;
     border: 2px solid rgb(14, 12, 12);
+    background-color: lightgrey;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -44,6 +45,8 @@
 
 .key_active {
     background-color: #0077ff;
+    transform: scale(0.9);
+    box-shadow: 0 2px 25px rgba(0, 76, 255, 0.2);
 }
 
 .backspace {
