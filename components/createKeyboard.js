@@ -35,7 +35,6 @@ const createKeyboard = (isAng = true, isShift = false) => {
         keysInkeyboard = rusKeysboard;
     }
 
-
     for (let i = 0; i < keysInkeyboard.length; i++) {
         const key = document.createElement('div');
         key.classList.add('key');
@@ -64,5 +63,6 @@ const createKeyboard = (isAng = true, isShift = false) => {
         keyboard.append(key);
     }
 }
+createKeyboard ();
 
 export { createKeyboard };
