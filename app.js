@@ -84,3 +84,33 @@ for (let key of keyboard) {
         target.classList.remove('key_active');
     });
 }
+
+
+document.addEventListener('keydown', (event) => {
+    //event.preventDefault();
+    const keys = document.querySelectorAll('.key');
+    const space = document.querySelector('.space');
+
+    for (let key of keys) {
+        if (key.innerText === event.key || key.classList.contains(event.key.toLowerCase())) {
+            key.classList.add('key_active');
+        } else if (event.code === 'Space') {
+            space.classList.add('key_active');
+        }
+    }
+   console.log(event.code)
+});
+
+document.addEventListener('keyup', (event) => {
+    //event.preventDefault();
+    const keys = document.querySelectorAll('.key');
+    const space = document.querySelector('.space');
+    
+    for (let key of keys) {
+        if (key.innerText === event.key || key.classList.contains(event.key.toLowerCase())) {
+            key.classList.remove('key_active');
+        } else if (event.code === 'Space') {
+            space.classList.remove('key_active');
+        }
+    }
+});
