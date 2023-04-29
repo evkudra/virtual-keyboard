@@ -66,10 +66,13 @@ for (let key of keyboard) {
         let target = event.target;
         if (target.classList.contains('keyboard')) {
             return
+        } else if (target.innerText === 'Shift') {
+            isShift ? isShift = false : isShift = true;
+            createKeyboard (isAng, isShift);
         }
         target.classList.add('key_active');
     });
-    
+
     key.addEventListener('mouseup', (event) => {
         let target = event.target;
         if (target.classList.contains('keyboard')) {
