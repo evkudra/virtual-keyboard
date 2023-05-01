@@ -7,7 +7,7 @@ const keyboard = document.querySelectorAll('.keyboard');
 
 let isAng = true;
 let isShift = false;
-
+let capslock = false;
 
 const textArea = document.createElement('textarea');
 textArea.classList.add('textarea');
@@ -98,7 +98,6 @@ document.addEventListener('keydown', (event) => {
             space.classList.add('key_active');
         }
     }
-   console.log(event.code)
 });
 
 document.addEventListener('keyup', (event) => {
@@ -114,3 +113,56 @@ document.addEventListener('keyup', (event) => {
         }
     }
 });
+
+
+for (let key of keyboard) {
+    
+    document.addEventListener('keyup', (event) => {
+       //console.log(event.key);
+       //event.preventDefault();
+       let text = '';
+
+        if (event.key === 'Tab') {
+            textArea.value += '   ';
+        } else if (event.key === 'Backspace') {
+            text = textArea.value;
+            textArea.value = text.slice(0, -1);
+        } else if (event.key === 'Enter') {
+            textArea.value += `\n`;
+        } else if (event.key === 'ArrowLeft') {
+            textArea.value += '←';
+        } else if (event.key === 'ArrowRight') {
+            textArea.value += '→';
+        } else if (event.key === 'ArrowUp') {
+            textArea.value += '↑';
+        } else if (event.key === 'ArrowDown') {
+            textArea.value += '↓';
+        } else if (event.key === 'Shift') {
+
+            if (event.altKey) {
+                isAng ? isAng = false : isAng = true;
+                createKeyboard(isAng);
+            } 
+
+        } else if (event.key === 'CapsLock') {
+            isShift ? isShift = false : isShift = true;
+            capslock ? capslock = false : capslock = true;
+            createKeyboard (isAng, isShift);
+        } else if (event.key === 'Alt') {
+
+            if (event.shiftKey) {
+                isAng ? isAng = false : isAng = true;
+                createKeyboard(isAng);
+            }
+
+        } else if (event.key === 'Control' || event.key === 'Delete' || event.key === 'Meta') {
+            return
+        } else {
+            if (!capslock) {
+                event.shiftKey ? textArea.value += event.key.toUpperCase() : textArea.value += event.key.toLowerCase();
+            } else {
+                event.shiftKey ? textArea.value += event.key.toLowerCase() : textArea.value += event.key.toUpperCase();
+            }
+        }
+    });
+}
