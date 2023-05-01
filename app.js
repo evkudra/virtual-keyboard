@@ -15,25 +15,6 @@ textArea.placeholder = 'Enter your message...';
 wrapper.prepend(textArea);
 
 
-const checkbox = document.createElement('input');
-checkbox.type = 'checkbox';
-wrapper.append(checkbox);
-
-
-
-checkbox.addEventListener('change', function() {
-    if (checkbox.checked) {
-        //console.log('checked')
-        isAng = true;
-        createKeyboard (isAng);
-    } else {
-        //console.log('unchecked')
-        isAng = false;
-        createKeyboard (isAng); 
-    }
-});
-
-
 for (let key of keyboard) {
     key.addEventListener('click', function(event) {
         let target = event.target;
