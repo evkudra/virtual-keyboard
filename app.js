@@ -20,11 +20,13 @@ changeLanguageInfo.textContent = 'Переключение языка Shift + Al
 wrapper.append(changeLanguageInfo);
 
 for (let key of keyboard) {
+
+    //Печать текста при клике на клавишу экранной клавиатуры
     key.addEventListener('click', function(event) {
         let target = event.target;
         let text = '';
 
-        console.log(target);
+        //console.log(target);
 
         if (target.classList.contains('keyboard')) {
             return
@@ -47,6 +49,7 @@ for (let key of keyboard) {
         }
     })
 
+    //Анимация при дейсвтиях мыши и смена языка при нажатии на клавишу Shift
     key.addEventListener('mousedown', (event) => {
         let target = event.target;
         if (target.classList.contains('keyboard')) {
@@ -71,6 +74,7 @@ for (let key of keyboard) {
 }
 
 
+//Анимация кнопок клавиатуры при нажатии
 document.addEventListener('keydown', (event) => {
     //event.preventDefault();
     const keys = document.querySelectorAll('.key');
@@ -85,6 +89,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+//Отключение анимации кнопок клавиатуры при отпускании клавиши
 document.addEventListener('keyup', (event) => {
     //event.preventDefault();
     const keys = document.querySelectorAll('.key');
@@ -100,6 +105,7 @@ document.addEventListener('keyup', (event) => {
 });
 
 
+//События клавиатуры
 for (let key of keyboard) {
     
     document.addEventListener('keyup', (event) => {
