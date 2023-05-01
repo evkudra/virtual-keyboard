@@ -14,6 +14,10 @@ textArea.classList.add('textarea');
 textArea.placeholder = 'Enter your message...';
 wrapper.prepend(textArea);
 
+const changeLanguageInfo = document.createElement('p');
+changeLanguageInfo.classList.add('changeLanguageInfo');
+changeLanguageInfo.textContent = 'Переключение языка Shift + Alt';
+wrapper.append(changeLanguageInfo);
 
 for (let key of keyboard) {
     key.addEventListener('click', function(event) {

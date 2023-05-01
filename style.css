@@ -4,6 +4,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .textarea {
@@ -83,4 +85,8 @@
 
 .space {
     width: 270px;
+}
+
+.changeLanguageInfo {
+    margin-top: 50px;
 }
